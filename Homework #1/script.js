@@ -14,6 +14,11 @@ let searchBtn = document.getElementById('findMovie');
 let result = document.getElementById('result');
 
 searchBtn.addEventListener('click',function (){
+    result.innerText = ""
+    if(!movieName){
+        result.innerText = "Please enter a movie name"
+    }
+    else{
     let movie = selectMovie();
         if(movie){
             result.innerText = "The movie can be rented"
@@ -23,6 +28,7 @@ searchBtn.addEventListener('click',function (){
             result.innerText = "The movie cant be rented"
             result.style.color = "red"
         }
+      }
     
     movieName.value = ""
 } );
