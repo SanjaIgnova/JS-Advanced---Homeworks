@@ -15,7 +15,7 @@ let result = document.getElementById('result');
 
 searchBtn.addEventListener('click',function (){
     result.innerText = ""
-    if(!movieName){
+    if(!movieName.value){
         result.innerText = "Please enter a movie name"
     }
     else{
