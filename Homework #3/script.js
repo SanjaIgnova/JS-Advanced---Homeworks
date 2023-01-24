@@ -14,9 +14,11 @@ let header = document.getElementById("header");
  let changeColor = (h1, color) => h1 === ''? h1.style.color  = black : h1.style.color = color
 
 
-let changeSize = (h1, size) => h1 === ""? h1.style.textSize = 24 +'px' : h1.style.textSize = size + "px";
+let changeSize = (h1, size) => h1 === ""? h1.style.fontSize = 24 +'px' : h1.style.fontSize = size + "px";
 
 
-button.addEventListener("click", () => changeColor(header, inputColor.value), changeSize(header,inputFontSize.value))
+button.addEventListener("click", () => {
+   changeColor(header, inputColor.value);
+   changeSize(header,inputFontSize.value)})
 
   
