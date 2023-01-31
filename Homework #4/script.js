@@ -37,8 +37,8 @@ button.addEventListener('click',function(){
         return res.json()
     })
     .then(function(data){
-        let planets = data.results
-        for(let planet of planets){
+        let results = data.results
+        for(let planet of results){
             let rows = document.createElement('tr');
 
             let cell = document.createElement('td');
@@ -101,8 +101,8 @@ nextBtn.addEventListener('click', function(){
         return res.json()
     })
     .then(function(data){
-        let planets = data.results
-        for(let planet of planets){
+        let results = data.results
+        for(let planet of results){
             let rows = document.createElement('tr');
 
             let cell = document.createElement('td');
@@ -165,8 +165,8 @@ prevBtn.addEventListener('click', function(){
         return res.json()
     })
     .then(function(data){
-        let planets = data.results
-        for(let planet of planets){
+        let results = data.results
+        for(let planet of results){
             let rows = document.createElement('tr');
 
             let cell = document.createElement('td');
