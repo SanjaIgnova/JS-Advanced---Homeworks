@@ -1,0 +1,10 @@
+body {
+    background-image: url("img/background1.png");
+    background-repeat: repeat;
+}
+
+.form-control {
+    border: 2px solid blue;
+    padding: 5px;
+    
+}
