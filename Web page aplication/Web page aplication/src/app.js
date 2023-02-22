@@ -106,9 +106,9 @@ function makeHeaders(array, table){
 function createTable(data){
    
         let tbody = document.createElement('tbody');
-        let rows = document.createElement('tr');
         let city = data;
-      
+      for ( let i=0; i = city.list.lenght; i++){
+        let rows = document.createElement('tr');
         let iconOfWeather = document.createElement('td');
         iconOfWeather.innerHTML =`<img src=https://openweathermap.org/img/w/${city.list[0].weather[0].icon}.png></img>`
         iconOfWeather.style.border = '3px solid black';
@@ -146,6 +146,7 @@ function createTable(data){
         rows.appendChild(windSpeed)
         tbody.appendChild(rows)
         table.appendChild(tbody);
+      }
 
 }
 
