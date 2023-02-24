@@ -73,6 +73,7 @@ button.addEventListener('click', function(){
         createTable(data)
         statisticWeather(data)  
         aboutWeather(city.value)
+        hourlyWeather(city.value)
        
     })
     .catch(error=>console.log(error))
@@ -227,3 +228,10 @@ function aboutWeather(input){
     text.appendChild(text2);
 }
 
+function hourlyWeather(input){
+    input = city.value
+    let div = document.getElementById('hourlyPage1');
+    let text = document.createElement('p')
+    text.innerText = `This is the weather forecast for the city of ${input}.`
+    div.appendChild(text)
+}
