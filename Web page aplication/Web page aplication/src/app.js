@@ -11,6 +11,7 @@ let table = document.getElementById('table');
 let list1 = document.getElementById('list1');
 let list2 = document.getElementById('list2');
 let text = document.getElementById('text');
+let div = document.getElementById('hourlyPage1');
 
 // Navbar activate 
 
@@ -57,7 +58,7 @@ activeateNavBar();
 // Hourly weather 
 
 button.addEventListener('click', function(){
-    pages[0].style.display = 'block'
+   pages[0].style.display = 'block';
     if(city.value === ""){
         table.style.display = ""
     } 
@@ -82,6 +83,7 @@ button.addEventListener('click', function(){
     list1.innerHTML = ""
     list2.innerHTML = ""
     text.innerHTML = ""
+    div.innerHTML = ""
 })
 
 
@@ -107,53 +109,54 @@ function makeHeaders(array, table){
 function createTable(data){
    
         let tbody = document.createElement('tbody');
+       
         let city = data;
-      for ( let i=0; i = city.list.lenght; i++){
+      for (let i = 0; i < city.list.length; i++){
         let rows = document.createElement('tr');
         let iconOfWeather = document.createElement('td');
-        iconOfWeather.innerHTML =`<img src=https://openweathermap.org/img/w/${city.list[0].weather[0].icon}.png></img>`
+        iconOfWeather.innerHTML =`<img src=https://openweathermap.org/img/w/${city.list[i].weather[0].icon}.png></img>`
         iconOfWeather.style.border = '3px solid black';
         iconOfWeather.style.textAlign = 'center';
         rows.appendChild(iconOfWeather)
     
         let descriptionOfWeather = document.createElement('td');
-        descriptionOfWeather.innerHTML = city.list[0].weather[0].description;
+        descriptionOfWeather.innerHTML = city.list[i].weather[0].description;
         descriptionOfWeather.style.border = '3px solid black';
         descriptionOfWeather.style.textAlign = 'center';
         rows.appendChild(descriptionOfWeather)
     
         let dataAndTime = document.createElement('td');
-        dataAndTime.innerHTML = city.list[0].dt_txt;
+        dataAndTime.innerHTML = city.list[i].dt_txt;
         dataAndTime.style.border = '3px solid black';
         dataAndTime.style.textAlign = 'center';
         rows.appendChild(dataAndTime)
     
         let temperature = document.createElement('td');
-        temperature.innerHTML = city.list[0].main.temp + "°C";
+        temperature.innerHTML = city.list[i].main.temp + "°C";
         temperature.style.border = '3px solid black';
         temperature.style.textAlign = 'center';
         rows.appendChild(temperature)
     
         let humidity = document.createElement('td');
-        humidity.innerHTML = city.list[0].main.humidity + "%";
+        humidity.innerHTML = city.list[i].main.humidity + "%";
         humidity.style.border = '3px solid black';
         humidity.style.textAlign = 'center'
         rows.appendChild(humidity)
     
         let windSpeed = document.createElement('td');
-        windSpeed.innerHTML = city.list[0].wind.speed +"m/s N";
+        windSpeed.innerHTML = city.list[i].wind.speed +"m/s N";
         windSpeed.style.border = '3px solid black';
         windSpeed.style.textAlign = 'center';
         rows.appendChild(windSpeed)
         tbody.appendChild(rows)
         table.appendChild(tbody);
-      }
-
+    }
 }
 
 // Statistics weather
 
 function statisticWeather(data){
+    // pages[0].style.display = 'block'
     
     let minTemp = data.list[0].main.temp;
     let maxTemp = data.list[0].main.temp;
@@ -219,6 +222,7 @@ function statisticWeather(data){
 
 
 function aboutWeather(input){
+  
     input = city.value
     let text1 = document.createElement('p');
     text1.innerText = `This is the weather forecast for the city of ${input}.`
@@ -228,10 +232,12 @@ function aboutWeather(input){
     text.appendChild(text2);
 }
 
+
 function hourlyWeather(input){
+   
     input = city.value
-    let div = document.getElementById('hourlyPage1');
-    let text = document.createElement('p')
-    text.innerText = `This is the weather forecast for the city of ${input}.`
-    div.appendChild(text)
+    let text3 = document.createElement('p')
+    text3.innerHTML = `This is the weather forecast for the city of ${input}.`
+    div.appendChild(text3)
+    
 }
