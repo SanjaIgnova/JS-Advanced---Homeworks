@@ -15,41 +15,40 @@ let text = document.getElementById('text');
 // Navbar activate 
 
 function activeateNavBar(){
-
     for(let i=0; i<pages.length; i++){
        
         pages[i].style.display = 'none';
-       
-        
+
        navBar[i].addEventListener('click', function(){
         
          if (i === 0){
-                navBar[i].classList.add('active'); 
-                navBar[i+1].classList.remove('active');
-                navBar[i+2].classList.remove('active');
-                pages[i].style.display = 'block';
-                pages[i+1].style.display = 'none';
-                pages[i+2].style.display = 'none';
+                navBar[0].classList.add('active'); 
+                navBar[1].classList.remove('active');
+                navBar[2].classList.remove('active');
+                pages[0].style.display = 'block';
+                pages[1].style.display = 'none';
+                pages[2].style.display = 'none';
                
             }else if (i=== 1){
-                navBar[i].classList.add('active'); 
-                navBar[i-1].classList.remove('active');
-                navBar[i+1].classList.remove('active');
-                pages[i].style.display = 'block';
-                pages[i+1].style.display = 'none';
-                pages[i-1].style.display = 'none';
+                navBar[0].classList.remove('active'); 
+                navBar[1].classList.add('active');
+                navBar[2].classList.remove('active');
+                pages[0].style.display = 'none';
+                pages[1].style.display = 'block';
+                pages[2].style.display = 'none';
              }  else if(i === 2){
-                navBar[i].classList.add('active'); 
-                navBar[i-1].classList.remove('active');
-                pages[i].style.display = 'block';
-                pages[i-1].style.display = 'none';
-                pages[i-2].style.display = 'none';
+                navBar[0].classList.remove('active'); 
+                navBar[1].classList.remove('active');
+                navBar[2].classList.add('active')
+                pages[0].style.display = 'none';
+                pages[1].style.display = 'none';
+                pages[2].style.display = 'block';
                           
             }
                         
         })        
-
     }
+    
 
 }
 
@@ -58,6 +57,7 @@ activeateNavBar();
 // Hourly weather 
 
 button.addEventListener('click', function(){
+    pages[0].style.display = 'block'
     if(city.value === ""){
         table.style.display = ""
     } 
@@ -188,21 +188,21 @@ function statisticWeather(data){
 
 
     let minTemperature = document.createElement('li')
-    minTemperature.innerHTML = `Minimum Temperature is: \n ${minTemp} °C measured in ${dateAndTimeTempMin}`
+    minTemperature.innerHTML = `Minimum Temperature for city of ${city.value} is: \n ${minTemp} °C measured in ${dateAndTimeTempMin}`
     let maxTemperature = document.createElement('li')
-    maxTemperature.innerHTML = `Maximum temperature is: \n ${maxTemp} °C measured in ${dateAndTimeTempMax}` 
+    maxTemperature.innerHTML = `Maximum temperature for city of ${city.value} is: \n ${maxTemp} °C measured in ${dateAndTimeTempMax}` 
     let minHumidity = document.createElement('li')
-    minHumidity.innerHTML = `Minimum humidity is: \n ${minHum} %`
+    minHumidity.innerHTML = `Minimum humidity for  city of ${city.value} is: \n ${minHum} %`
     let maxHumidity = document.createElement('li')
-    maxHumidity.innerHTML = `Maximum humidity is: \n ${maxHum} %`
+    maxHumidity.innerHTML = `Maximum humidity for city of ${city.value} is: \n ${maxHum} %`
     let sumTemperature = document.createElement('li')
-    sumTemperature.innerHTML = `Sum of all temperature is: \n ${sumTemp}`
+    sumTemperature.innerHTML = `Sum of all temperature for city of ${city.value} is: \n ${sumTemp}`
     let sumHumidity = document.createElement('li')
-    sumHumidity.innerHTML = `Sum of all humidity is: \n ${sumHum}`
+    sumHumidity.innerHTML = `Sum of all humidity for city of ${city.value} is: \n ${sumHum}`
     let averageTemp = document.createElement('li')
-    averageTemp.innerHTML = `Average temperature is: \n ${tempAverage}`
+    averageTemp.innerHTML = `Average temperature  for city of ${city.value} is: \n ${tempAverage}`
     let averageHumidity = document.createElement('li')
-    averageHumidity.innerHTML = `Average humidity is: \n ${humAverage}`
+    averageHumidity.innerHTML = `Average humidity for city of ${city.value} is: \n ${humAverage}`
     list1.appendChild(minTemperature);
     list1.appendChild(maxTemperature);
     list2.appendChild(minHumidity);
